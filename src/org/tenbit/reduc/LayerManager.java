@@ -1,5 +1,6 @@
 package org.tenbit.reduc;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +20,9 @@ public class LayerManager {
 	public void remove(String name) {
 		layers.remove(name);
 	}
-	public void update() {
+	public void update(Graphics g) {
 		for(int i = 0; i < layers.size(); i++) {
-			layers.entrySet().iterator().next().getValue().update();
+			layers.entrySet().iterator().next().getValue().update(g);
 		}
 	}
 	public Map<String, Layer> getLayers() {

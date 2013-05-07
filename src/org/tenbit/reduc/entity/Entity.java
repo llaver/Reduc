@@ -1,5 +1,8 @@
 package org.tenbit.reduc.entity;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import org.lwjgl.util.vector.Vector2f;
 import org.tenbit.reduc.Layer;
 import org.tenbit.reduc.Reduc;
@@ -53,7 +56,10 @@ public class Entity {
 		layer.remove(this);
 	}
 	
-	public void draw() {
+	public void draw(Graphics g) {
+		Graphics2D g2D = (Graphics2D) g;
+		
+		
 		
 	}
 	
