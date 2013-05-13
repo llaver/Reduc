@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import org.lwjgl.util.vector.Vector2f;
+import org.tenbit.reduc.ImageManager;
 import org.tenbit.reduc.Layer;
 import org.tenbit.reduc.Reduc;
 
@@ -30,8 +31,14 @@ public class Entity {
 	
 	protected Layer layer = null;
 	
+	private int type;
+	
 	public Vector2f speed = new Vector2f();
 	public Vector2f position = new Vector2f();
+	
+	public Entity(int type) {
+		this.type = type;
+	}
 
 	public void spawn(Vector2f position,Vector2f speed,Layer layer )
 	{
@@ -58,7 +65,7 @@ public class Entity {
 	
 	public void draw(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		
+		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, null);
 		
 		
 	}
@@ -146,6 +153,9 @@ public class Entity {
 
 	public Layer getLayer() {
 		return layer;
+	}
+	public int getType() {
+		return type;
 	}
 
 	public void setLayer(Layer layer) {

@@ -24,7 +24,7 @@ public class ImageManager {
 		
 	}
 	
-	public BufferedImage getImage(int imageID) {
+	public static BufferedImage getImage(int imageID) {
 		return images[imageID];
 	}
 	
