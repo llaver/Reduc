@@ -1,5 +1,8 @@
 package org.tenbit.reduc;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -7,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.lwjgl.util.Timer;
+import org.tenbit.reduc.entity.IEntity;
 
 public class Reduc extends JPanel implements Runnable, Observer {
 	
@@ -31,6 +35,10 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		SCREEN_HEIGHT = getHeight();
 		new Thread(this).start();
 		
+		ImageManager im = new ImageManager();
+		
+		setBackground(Color.BLACK);
+		
 		
 		
 	}
@@ -48,11 +56,12 @@ public class Reduc extends JPanel implements Runnable, Observer {
         lastTime = timer.getTime();
 		
 	}
-
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
+	public void paint(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		g2.drawImage(ImageManager.getImage(IEntity.PLAYER_SHIP), 500, 500, null);
+		System.out.println("oshit1");
 	}
 
 	@Override
@@ -67,6 +76,11 @@ public class Reduc extends JPanel implements Runnable, Observer {
      
         } catch(InterruptedException e) {
         }
+		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
 		
 	}
 	

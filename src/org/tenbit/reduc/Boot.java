@@ -1,6 +1,8 @@
 package org.tenbit.reduc;
 
 import javax.swing.JFrame;
+
+import java.awt.Color;
 import java.awt.Component;
 import java.lang.System;
 
@@ -17,6 +19,7 @@ public class Boot extends JFrame {
         ((Component)rc).setFocusable(true);
         System.out.println("Hello World! (:");
         
+        setBackground(Color.BLACK);
         
         getContentPane().add( rc );
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
