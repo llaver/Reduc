@@ -3,8 +3,8 @@ package org.tenbit.reduc;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,6 +25,9 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	static Timer timer = new Timer();
 	static float lastTime = timer.getTime();
 	
+
+	public static Setup setup;
+	
 	// Measure time elapsed since last frame renderer
 	// This is the heart variable of the engine
 	public static float tick;
@@ -39,8 +42,17 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		
 		setBackground(Color.BLACK);
 		
+		setup = new Setup();
+		setup.addObserver(this);
+		this.addKeyListener(setup);
+		this.addMouseMotionListener(setup);
+		this.addMouseListener(setup);
+		addObservers();
 		
-		
+	}
+	private void addObservers() {
+		//setup.addObserver(new MousePos());
+		//setup.addObserver(menu);
 	}
 	
 	public void createLayers() {
@@ -60,8 +72,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g2.drawImage(ImageManager.getImage(IEntity.PLAYER_SHIP), 500, 500, null);
-		System.out.println("oshit1");
+		g2.drawImage(ImageManager.getImage(IEntity.PLAYER_SHIP), 400, 250, null);
 	}
 
 	@Override
@@ -80,7 +91,20 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
+	public void updateKey(KeyEvent keyEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateMouse(MouseEvent mouseEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateClick(MouseEvent mouseEvent) {
+		// TODO Auto-generated method stub
 		
 	}
 	

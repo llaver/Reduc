@@ -30,8 +30,8 @@ public class ImageManager {
 	}
 	
 	private void loadFiles() {
-		files[IEntity.PLAYER_SHIP] = new File("data/PlayerShip.png");
-		files[IEntity.ALIEN_SHIP_1] = new File("data/AlienShip.png");		
+		files[IEntity.PLAYER_SHIP] = new File("src/data/PlayerShip.png");
+		files[IEntity.ALIEN_SHIP_1] = new File("src/data/AlienShip.png");		
 		
 	}
 	private void loadImages() {
