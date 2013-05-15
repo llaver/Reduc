@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import org.lwjgl.util.Timer;
 import org.tenbit.reduc.entity.IEntity;
+import org.tenbit.reduc.util.MousePos;
 
 public class Reduc extends JPanel implements Runnable, Observer {
 	
@@ -25,6 +26,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	static Timer timer = new Timer();
 	static float lastTime = timer.getTime();
 	
+	MousePos mp = new MousePos();	
 
 	public static Setup setup;
 	
@@ -51,7 +53,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		
 	}
 	private void addObservers() {
-		//setup.addObserver(new MousePos());
+		setup.addObserver(new MousePos());
 		//setup.addObserver(menu);
 	}
 	
@@ -72,7 +74,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g2.drawImage(ImageManager.getImage(IEntity.PLAYER_SHIP), 400, 250, null);
+		mp.paint(g);
 	}
 
 	@Override

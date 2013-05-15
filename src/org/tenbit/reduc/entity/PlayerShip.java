@@ -26,19 +26,15 @@ public class PlayerShip extends Entity implements Observer {
 
 	@Override
 	public void updateKey(KeyEvent keyEvent) {
-		
+	
 	}
 
 	@Override
 	public void updateMouse(MouseEvent mouseEvent) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void updateClick(MouseEvent mouseEvent) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

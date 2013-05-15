@@ -14,8 +14,8 @@ public class Entity {
 	public int original_height;
 	
 	private float ratio = 1f;
-	public float width ;
-	public float height ;
+	public float width;
+	public float height;
 	
 	public float rotation = 0;
 	protected float rotationSpeed = 0;
@@ -59,9 +59,12 @@ public class Entity {
 	
 	public void draw(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, null);
+		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, (int) (ImageManager.getImage(type).getWidth() * ratio), (int) (ImageManager.getImage(type).getHeight() * ratio), null);
 		
 		
+	}
+	public void setRatio(float ratio) {
+		this.ratio = ratio;
 	}
 	
 	protected Vector2f interpolate(Vector2f old_position,Vector2f speed)
