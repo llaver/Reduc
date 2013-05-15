@@ -9,7 +9,7 @@ import java.util.Set;
 public class LayerManager {
 	
 	//private ArrayList<Layer> layers = new ArrayList<Layer>();
-	private Map<String, Layer> layers = new HashMap<String, Layer>();
+	private static Map<String, Layer> layers = new HashMap<String, Layer>();
 	
 	public LayerManager() {
 		

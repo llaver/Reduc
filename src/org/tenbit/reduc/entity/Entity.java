@@ -52,12 +52,6 @@ public class Entity {
 		this.layer.add(this);
 	}
 	
-	public void spawn(Vector2f position,Vector2f speed, float rotationSpeed,Layer layer  )
-	{
-		spawn(position,speed,layer);
-		this.rotationSpeed = rotationSpeed;
-	}
-	
 	public void unSpawn()
 	{
 		layer.remove(this);
