@@ -19,8 +19,11 @@ public class Layer {
 		entities.remove(e);
 	}
 	public void update(Graphics g) {
+		System.out.println("entities.size(): " + entities.size());
+		//System.out.println("entities: " + entities);
 		for(int i = 0; i < entities.size(); i++) {
 			entities.get(i).draw(g);
+			System.out.println("entities: " + entities.get(i).getType());
 		}
 	}
 	public void render() {

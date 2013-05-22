@@ -38,6 +38,7 @@ public class Entity {
 	
 	public Entity(int type) {
 		this.type = type;
+		
 	}
 
 	public void spawn(Vector2f position,Vector2f speed,Layer layer )
@@ -59,7 +60,9 @@ public class Entity {
 	
 	public void draw(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, (int) (ImageManager.getImage(type).getWidth() * ratio), (int) (ImageManager.getImage(type).getHeight() * ratio), null);
+		System.out.println("Drawing");
+		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, (int) (ImageManager.getImage(type).getWidth() * ratio), (int) (ImageManager.getImage(type).getHeight() * ratio), null);     
+		System.out.println("X: " + (int) position.x + " Y: " + (int) position.y);
 		
 		
 	}

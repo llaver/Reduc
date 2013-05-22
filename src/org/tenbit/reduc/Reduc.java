@@ -10,7 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.lwjgl.util.Timer;
+import org.lwjgl.util.vector.Vector2f;
+import org.tenbit.reduc.entity.Entity;
 import org.tenbit.reduc.entity.IEntity;
+import org.tenbit.reduc.entity.PlayerShip;
 import org.tenbit.reduc.util.MousePos;
 
 public class Reduc extends JPanel implements Runnable, Observer {
@@ -34,6 +37,9 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	// This is the heart variable of the engine
 	public static float tick;
 	
+	//Layers
+	LayerManager lm = new LayerManager();
+	
 	public Reduc(JFrame par) {
 		
 		SCREEN_WIDTH = getWidth();
@@ -41,6 +47,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		new Thread(this).start();
 		
 		ImageManager im = new ImageManager();
+		createLayers();
 		
 		setBackground(Color.BLACK);
 		
@@ -51,6 +58,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		this.addMouseListener(setup);
 		addObservers();
 		
+		
 	}
 	private void addObservers() {
 		setup.addObserver(new MousePos());
@@ -58,9 +66,19 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	}
 	
 	public void createLayers() {
+		Layer tempLay;
+		PlayerShip tempEnt = new PlayerShip();
+		//Player
+		lm.add("PLAYER_SHIP", new Layer());
+		tempLay = lm.getLayer("PLAYER_SHIP");
 		
-		
-		
+		if(tempLay != null) {
+			tempEnt.spawn();
+			lm.updateLayer("PLAYER_SHIP", tempLay);
+			System.out.println("temp not null");
+		} else {
+			System.out.println("temp null");
+		}
 	}
 	
 	public static void heartBeat() {
@@ -73,8 +91,11 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		//g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		mp.paint(g);
+		lm.update(g);
+		
+		
 	}
 
 	@Override
