@@ -16,18 +16,22 @@ public class PlayerShip extends Entity implements Observer {
 	}
 	
 	public void spawn() {
-		Vector2f defPos= new Vector2f((float) (Reduc.SCREEN_WIDTH/2), (float) (Reduc.SCREEN_HEIGHT/2));
+		Vector2f defPos= new Vector2f((Reduc.SCREEN_WIDTH/2), (Reduc.SCREEN_HEIGHT/2));
 		Vector2f defSpd = new Vector2f(1.0f, 1.0f);
 		LayerManager lm = new LayerManager();
 		Layer tempLayer = lm.getLayer("PLAYER_SHIP");
 		if (tempLayer != null)
 		super.spawn(defPos, defSpd, tempLayer);
+		System.out.println("X: " + super.position.x + " Y: " + super.position.y);
 		System.out.println("pship spawn");
 	}
 
 	@Override
 	public void updateKey(KeyEvent keyEvent) {
-	
+		System.out.println("keypressed: " + keyEvent.getKeyChar());
+		if(keyEvent.equals(KeyEvent.VK_W)) {
+			super.position.y--;
+		}
 	}
 
 	@Override

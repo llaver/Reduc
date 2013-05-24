@@ -18,8 +18,8 @@ import org.tenbit.reduc.util.MousePos;
 
 public class Reduc extends JPanel implements Runnable, Observer {
 	
-	static public int SCREEN_WIDTH = 800;
-	static public int SCREEN_HEIGHT = 600;
+	public static int SCREEN_WIDTH = 800;
+	public static int SCREEN_HEIGHT = 600;
 	
 	// Variables used to calculate fps
     private int frames;
@@ -30,6 +30,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	static float lastTime = timer.getTime();
 	
 	MousePos mp = new MousePos();	
+	PlayerShip pShip;
 
 	public static Setup setup;
 	
@@ -41,9 +42,6 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	LayerManager lm = new LayerManager();
 	
 	public Reduc(JFrame par) {
-		
-		SCREEN_WIDTH = getWidth();
-		SCREEN_HEIGHT = getHeight();
 		new Thread(this).start();
 		
 		ImageManager im = new ImageManager();
@@ -62,18 +60,18 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	}
 	private void addObservers() {
 		setup.addObserver(new MousePos());
-		//setup.addObserver(menu);
+		setup.addObserver(pShip);
 	}
 	
 	public void createLayers() {
 		Layer tempLay;
-		PlayerShip tempEnt = new PlayerShip();
+		pShip = new PlayerShip();
 		//Player
 		lm.add("PLAYER_SHIP", new Layer());
 		tempLay = lm.getLayer("PLAYER_SHIP");
 		
 		if(tempLay != null) {
-			tempEnt.spawn();
+			pShip.spawn();
 			lm.updateLayer("PLAYER_SHIP", tempLay);
 			System.out.println("temp not null");
 		} else {
@@ -93,9 +91,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		Graphics2D g2 = (Graphics2D) g;
 		//g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		mp.paint(g);
-		lm.update(g);
-		
-		
+		lm.update(g);		
 	}
 
 	@Override
