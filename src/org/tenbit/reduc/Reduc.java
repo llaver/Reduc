@@ -89,7 +89,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		//g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		g2.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		mp.paint(g);
 		lm.update(g);		
 	}

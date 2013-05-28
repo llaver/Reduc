@@ -57,7 +57,7 @@ public class Entity {
 	
 	public void draw(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, (int) (ImageManager.getImage(type).getWidth() * ratio), (int) (ImageManager.getImage(type).getHeight() * ratio), null);     
+		g2D.drawImage(ImageManager.getImage(type), (int) position.x, (int) position.y, (int) (ImageManager.getImage(type).getWidth() * ratio), (int) (ImageManager.getImage(type).getHeight() * ratio), null);
 	}
 	
 	public void setRatio(float ratio) {
