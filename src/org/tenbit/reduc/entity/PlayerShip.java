@@ -32,6 +32,7 @@ public class PlayerShip extends Entity implements Observer {
 	@Override
 	public void updateKey(KeyEvent keyEvent) {
 		System.out.println("keypressed: " + keyEvent.getKeyChar());
+<<<<<<< HEAD
 
 		switch (keyEvent.getKeyCode()) {
 		case KeyEvent.VK_W:
@@ -48,7 +49,25 @@ public class PlayerShip extends Entity implements Observer {
 			break;
 		case KeyEvent.VK_SPACE:
 			fire();
+=======
+		if(keyEvent.getKeyCode() == (KeyEvent.VK_W)) {
+			System.out.println("MOVE UP!");
+			super.position.y -= 10;
+>>>>>>> Image Resizing
 		}
+		if(keyEvent.getKeyCode() == (KeyEvent.VK_A)) {
+			System.out.println("MOVE LEFT!");
+			super.position.x -= 10;
+		}
+		if(keyEvent.getKeyCode() == (KeyEvent.VK_S)) {
+			System.out.println("MOVE DOWN!");
+			super.position.y += 10;
+		}
+		if(keyEvent.getKeyCode() == (KeyEvent.VK_D)) {
+			System.out.println("MOVE RIGHT!");
+			super.position.x += 10;
+		}
+		
 	}
 
 	public void fire() {
