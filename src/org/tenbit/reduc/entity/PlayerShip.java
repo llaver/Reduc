@@ -14,7 +14,7 @@ public class PlayerShip extends Entity implements Observer {
 
 	public static int mouseX;
 	public static int mouseY;
-	
+
 	LayerManager lm = new LayerManager();
 
 	public PlayerShip() {
@@ -34,7 +34,6 @@ public class PlayerShip extends Entity implements Observer {
 	@Override
 	public void updateKey(KeyEvent keyEvent) {
 		System.out.println("keypressed: " + keyEvent.getKeyChar());
-<<<<<<< HEAD
 		switch (keyEvent.getKeyCode()) {
 		case KeyEvent.VK_W:
 			super.position.y -= 10;
@@ -51,51 +50,17 @@ public class PlayerShip extends Entity implements Observer {
 		case KeyEvent.VK_SPACE:
 			fire();
 		}
-=======
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_W)) {
-			System.out.println("MOVE UP!");
-			super.position.y -= 10;
-		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_A)) {
-			System.out.println("MOVE LEFT!");
-			super.position.x -= 10;
-		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_S)) {
-			System.out.println("MOVE DOWN!");
-			super.position.y += 10;
-		}
-
-				switch (keyEvent.getKeyCode()) {
-				case KeyEvent.VK_W:
-					super.position.y -= 10;
-					break;
-				case KeyEvent.VK_S:
-					super.position.y += 10;
-					break;
-				case KeyEvent.VK_D:
-					super.position.x += 10;
-					break;
-				case KeyEvent.VK_A:
-					super.position.x -= 10;
-					break;
-				case KeyEvent.VK_SPACE:
-					fire();
-				}
->>>>>>> e13be61f5c20c3e96c0cccb759431dc3a848eb85
 	}
 
 	public void fire() {
 		System.out.println("FIRING");
-<<<<<<< HEAD
-		LayerManager lm = new LayerManager();
+		/*LayerManager lm = new LayerManager();
 		if (lm.getLayer("BULLET") == null) {
 			lm.add("BULLET", new Layer());
 		}
 		Bullet bullet = new Bullet();
 		bullet.spawn();
-		lm.updateLayer("BULLET", lm.getLayer("BULLET"));
-=======
->>>>>>> e13be61f5c20c3e96c0cccb759431dc3a848eb85
+		lm.updateLayer("BULLET", lm.getLayer("BULLET"));*/
 	}
 
 	@Override
@@ -105,13 +70,11 @@ public class PlayerShip extends Entity implements Observer {
 			mouseX = mouseEvent.getX();
 			mouseY = mouseEvent.getY();
 		}	
-<<<<<<< HEAD
 		super.position.x = mouseEvent.getX()-25;
 		super.position.y = mouseEvent.getY()-35;
-=======
+
 		super.position.x = mouseEvent.getX() - ((ImageManager.getImage(IEntity.PLAYER_SHIP).getWidth()) / 2);
 		super.position.y = mouseEvent.getY() - ((ImageManager.getImage(IEntity.PLAYER_SHIP).getHeight()) / 2);
->>>>>>> e13be61f5c20c3e96c0cccb759431dc3a848eb85
 
 		mouseX = mouseEvent.getX();
 		mouseY = mouseEvent.getY();
