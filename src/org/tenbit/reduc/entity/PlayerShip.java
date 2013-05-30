@@ -32,22 +32,6 @@ public class PlayerShip extends Entity implements Observer {
 	@Override
 	public void updateKey(KeyEvent keyEvent) {
 		System.out.println("keypressed: " + keyEvent.getKeyChar());
-<<<<<<< HEAD
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_W)) {
-			System.out.println("MOVE UP!");
-			super.position.y -= 10;
-		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_A)) {
-			System.out.println("MOVE LEFT!");
-			super.position.x -= 10;
-		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_S)) {
-			System.out.println("MOVE DOWN!");
-			super.position.y += 10;
-		}
-=======
-<<<<<<< HEAD
-
 		switch (keyEvent.getKeyCode()) {
 		case KeyEvent.VK_W:
 			super.position.y -= 10;
@@ -63,33 +47,18 @@ public class PlayerShip extends Entity implements Observer {
 			break;
 		case KeyEvent.VK_SPACE:
 			fire();
-=======
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_W)) {
-			System.out.println("MOVE UP!");
-			super.position.y -= 10;
->>>>>>> Image Resizing
 		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_A)) {
-			System.out.println("MOVE LEFT!");
-			super.position.x -= 10;
-		}
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_S)) {
-			System.out.println("MOVE DOWN!");
-			super.position.y += 10;
-		}
->>>>>>> 306faa39feb7ddf87be4fb91d45ee5826e5b78fe
-		if(keyEvent.getKeyCode() == (KeyEvent.VK_D)) {
-			System.out.println("MOVE RIGHT!");
-			super.position.x += 10;
-		}
-		
-<<<<<<< HEAD
-=======
 	}
 
 	public void fire() {
 		System.out.println("FIRING");
->>>>>>> 306faa39feb7ddf87be4fb91d45ee5826e5b78fe
+		LayerManager lm = new LayerManager();
+		if (lm.getLayer("BULLET") == null) {
+			lm.add("BULLET", new Layer());
+		}
+		Bullet bullet = new Bullet();
+		bullet.spawn();
+		lm.updateLayer("BULLET", lm.getLayer("BULLET"));
 	}
 
 	@Override
@@ -99,8 +68,8 @@ public class PlayerShip extends Entity implements Observer {
 			mouseX = mouseEvent.getX();
 			mouseY = mouseEvent.getY();
 		}	
-		super.position.x = mouseEvent.getX()-50;
-		super.position.y = mouseEvent.getY()-67;
+		super.position.x = mouseEvent.getX()-25;
+		super.position.y = mouseEvent.getY()-35;
 
 		mouseX = mouseEvent.getX();
 		mouseY = mouseEvent.getY();

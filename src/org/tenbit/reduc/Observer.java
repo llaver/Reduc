@@ -8,6 +8,4 @@ public interface Observer {
 	public void updateKey(KeyEvent keyEvent);
 	public void updateMouse(MouseEvent mouseEvent);
 	public void updateClick(MouseEvent mouseEvent); 
-
-
 }

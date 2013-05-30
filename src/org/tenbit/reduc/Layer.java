@@ -23,6 +23,9 @@ public class Layer {
 			entities.get(i).draw(g);
 		}
 	}
+	public Entity getEntityAtIndex(int index) {
+		return entities.get(index);
+	}
 	public void render() {
 		
 		Entity e = null;

@@ -51,7 +51,7 @@ public class ImageManager {
 	private void resizeImages() {
 		for(int i = 0; i < images.length; i++) {
 			if(images[i] != null)
-				images[i] = resize(images[i], images[i].getWidth() / 3, images[i].getHeight() / 3);
+				images[i] = resize(images[i], images[i].getWidth() / 2, images[i].getHeight() / 2);
 		}
 	}
 	

@@ -4,5 +4,5 @@ public interface IEntity {
 	
 	public static int PLAYER_SHIP = 0;
 	public static int ALIEN_SHIP_1 = 1;
-	
+	public static int BULLET = 2;	
 }
