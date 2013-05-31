@@ -37,8 +37,9 @@ public class Reduc extends JPanel implements Runnable, Observer {
 
 	MousePos mp = new MousePos();	
 	AlienHorde horde = new AlienHorde();
+	PlayerShip pShip;
 	AlienShip aShip;
-	PlayerShip pShip;	
+		
 
 	public static Setup setup;
 
@@ -86,6 +87,19 @@ public class Reduc extends JPanel implements Runnable, Observer {
 	public void createLayers() {
 		Layer tempLay;
 
+		//Player		
+				pShip = new PlayerShip();
+				lm.add("PLAYER_SHIP", new Layer());
+				tempLay = lm.getLayer("PLAYER_SHIP");
+
+				if(tempLay != null) {
+					pShip.spawn();
+					lm.updateLayer("PLAYER_SHIP", tempLay);
+					System.out.println("PLAYER_SHIP is not null.");
+				} else {
+					System.out.println("PLAYER_SHIP is null.");
+				}
+		
 		//Aliens
 		aShip = new AlienShip();
 		lm.add("ENEMY", new Layer());
@@ -98,19 +112,6 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		} else {
 			System.out.println("ENEMY is null.");
 		}	
-		
-		//Player		
-		pShip = new PlayerShip();
-		lm.add("PLAYER_SHIP", new Layer());
-		tempLay = lm.getLayer("PLAYER_SHIP");
-
-		if(tempLay != null) {
-			pShip.spawn();
-			lm.updateLayer("PLAYER_SHIP", tempLay);
-			System.out.println("PLAYER_SHIP is not null.");
-		} else {
-			System.out.println("PLAYER_SHIP is null.");
-		}
 		
 	}
 
@@ -134,6 +135,7 @@ public class Reduc extends JPanel implements Runnable, Observer {
 		try {
 			while(true) {
 				Thread.currentThread().sleep(1);
+				heartBeat();
 				repaint();
 			}
 

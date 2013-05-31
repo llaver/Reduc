@@ -72,8 +72,7 @@ public class Entity {
 	}
 	
 	public void update() {
-		interpolate(position,speed);
-		this.rotation += rotationSpeed * tick ;
+		position = interpolate(position,speed);
 		if (this.position.x - this.width > (Reduc.SCREEN_WIDTH / 2) || this.position.x + this.width < - (Reduc.SCREEN_WIDTH / 2)) {
 			unSpawn();
 			//if (Logger.isLogActivate) Logger.log(this.getClass().getName()+" died");

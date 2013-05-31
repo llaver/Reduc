@@ -26,7 +26,9 @@ public class LayerManager {
 	public void update(Graphics g) {
 		for(int i = 0; i < layers.size(); i++) {
 			if(layers.get(getNames().toArray()[i]) != null) {
+				System.out.println("Updating Layer: " + getNames().toArray()[i]);
 				layers.get(getNames().toArray()[i]).update(g);
+				layers.get(getNames().toArray()[i]).render();
 			} else {
 			}
 		}

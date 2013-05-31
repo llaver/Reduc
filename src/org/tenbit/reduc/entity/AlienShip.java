@@ -14,13 +14,23 @@ public class AlienShip extends Entity {
 	}
 	
 	public void spawn(Vector2f position) {
-		Vector2f defSpd = new Vector2f(1.0f, 1.0f);
+		Vector2f defSpd = new Vector2f(50f, 0f);
 		Layer tempLayer = lm.getLayer("ENEMY");
 		if (tempLayer != null)
 			super.spawn(position, defSpd, tempLayer);
 		System.out.println("X: " + super.position.x + " Y: " + super.position.y);
-		System.out.println("pship spawn");
+		System.out.println("aship spawn");
 		
 	}
+	
+/*	@Override
+	public void update() {
+		position = interpolate(position,speed);
+		if (this.position.x - this.width > (Reduc.SCREEN_WIDTH / 2) || this.position.x + this.width < - (Reduc.SCREEN_WIDTH / 2)) {
+			unSpawn();
+			//if (Logger.isLogActivate) Logger.log(this.getClass().getName()+" died");
+			return;
+		}
+	}*/
 
 }

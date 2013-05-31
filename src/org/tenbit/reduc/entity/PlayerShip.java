@@ -23,7 +23,7 @@ public class PlayerShip extends Entity implements Observer {
 
 	public void spawn() {
 		Vector2f defPos= new Vector2f((Reduc.SCREEN_WIDTH/2), (Reduc.SCREEN_HEIGHT/2));
-		Vector2f defSpd = new Vector2f(1.0f, 1.0f);
+		Vector2f defSpd = new Vector2f(0f, 0f);
 		Layer tempLayer = lm.getLayer("PLAYER_SHIP");
 		if (tempLayer != null)
 			super.spawn(defPos, defSpd, tempLayer);
